@@ -1,0 +1,23 @@
+# Device for evaluation
+device: cuda:0
+
+#######################################################################################
+# Data
+#######################################################################################
+
+H_path: multi-fidelity-mask-pretrained-cnn/data/burgers/sim
+L_path: multi-fidelity-mask-pretrained-cnn/data/burgers/sim
+# Model weights (checkpoint of trained UNet)
+checkpoint_path: multi-fidelity-mask-pretrained-cnn/weights/cnn/burgers/pretrain-super-fidelity.pth
+
+
+# Model architecture parameters
+in_chans: 2
+
+# Evaluation settings
+batch_size: 1
+num_workers: 4
+
+# Where to save evaluation output (MSE array, plots, etc.)
+save_path: multi-fidelity-mask-pretrained-cnn/results/burgers/cnn/pretrain/super-fidelity/trail5/5-instances
+save_predictions: false

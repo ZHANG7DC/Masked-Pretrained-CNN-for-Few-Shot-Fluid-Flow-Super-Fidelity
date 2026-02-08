@@ -1,0 +1,57 @@
+
+seed: 0
+
+# Device to run training on.
+device: cuda:0
+
+data_path: multi-fidelity-mask-pretrained-cnn/data/burgers/sim
+indices_path: multi-fidelity-mask-pretrained-cnn/data/burgers/trails/trail5/sample_5.txt
+
+# Path to the pretrained MAE checkpoint.
+pretrained_path: multi-fidelity-mask-pretrained-cnn/weights/transformer/burgers/pretrain_weights.pth
+
+# List of dataset file names or identifiers.
+names: ['LF', 'HF', 'param']
+
+# Batch size for the DataLoader.
+batch_size: 5
+
+# List of channels; the length of this list will be used as the number of channels.
+channels: [0,1]
+
+# Image size (height, width) in pixels.
+image_size: 128
+
+# Dimension of the parameter vector.
+param_dim: 1
+
+# Patch size (if single integer, it will be used as both height and width).
+patch_size: 16
+
+# Encoder (ViT) configuration.
+encoder_dim: 192
+encoder_depth: 4
+encoder_heads: 12
+encoder_mlp_dim: 384
+
+# Decoder configuration.
+decoder_dim: 64
+decoder_depth: 2
+decoder_heads: 8
+decoder_dim_head: 16
+
+# Optimizer settings.
+lr: 0.0001
+beta1: 0.9
+beta2: 0.98
+dropout: 0.0
+emb_dropout: 0.0
+
+# Path to save model checkpoints.
+save_path: multi-fidelity-mask-pretrained-cnn/weights/transformer/burgers
+
+# Total number of training epochs.
+num_epochs: 16000
+
+# Whether to train (fine-tune) the encoder along with the decoder.
+train_encoder: false

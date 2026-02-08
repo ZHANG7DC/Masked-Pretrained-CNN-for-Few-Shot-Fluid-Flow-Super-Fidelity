@@ -1,0 +1,20 @@
+# config.yaml
+device: cuda:0
+
+save_path: multi-fidelity-mask-pretrained-cnn/weights/cnn/burgers
+pretrained_path: multi-fidelity-mask-pretrained-cnn/weights/cnn/burgers/pretrain_weights.pth
+#######################################################################################
+# Data
+#######################################################################################
+H_path: multi-fidelity-mask-pretrained-cnn/data/burgers/sim
+L_path: multi-fidelity-mask-pretrained-cnn/data/burgers/sim
+training_instance_file: multi-fidelity-mask-pretrained-cnn/data/burgers/trails/trail5/sample_5.txt
+
+# Training
+batch_size: 5                          # Batch size for training
+epochs: 16000                           # Total number of training iterations
+learning_rate: 0.0001                   # Learning rate for optimizer
+save_interval: 1000                     # How often to save model (in epochs)
+
+# Model              
+in_chans: 2

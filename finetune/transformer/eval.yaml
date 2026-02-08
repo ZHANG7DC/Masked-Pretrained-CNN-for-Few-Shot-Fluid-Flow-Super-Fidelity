@@ -1,0 +1,42 @@
+pde: burgers
+# Random seed for reproducibility.
+seed: 0
+
+# Device to run training on.
+device: cuda:0
+
+data_path: multi-fidelity-mask-pretrained-cnn/data/burgers/sim
+
+# Path to the pretrained MAE checkpoint.
+encoder_pretrained_path: multi-fidelity-mask-pretrained-cnn/weights/transformer/burgers/pretrain-super-fidelity.pth
+decoder_pretrained_path: multi-fidelity-mask-pretrained-cnn/weights/transformer/burgers/pretrain-super-fidelity.pth
+# List of dataset file names or identifiers.
+names: ['LF', 'HF', 'param']
+
+# List of channels; the length of this list will be used as the number of channels.
+channels: [0,1]
+
+# Image size (height, width) in pixels.
+image_size: 128
+
+# Dimension of the parameter vector.
+param_dim: 1
+
+# Patch size (if single integer, it will be used as both height and width).
+patch_size: 16
+
+# Encoder (ViT) configuration.
+encoder_dim: 192
+encoder_depth: 4
+encoder_heads: 12
+encoder_mlp_dim: 384
+
+# Decoder configuration.
+decoder_dim: 64
+decoder_depth: 2
+decoder_heads: 8
+decoder_dim_head: 16
+
+
+# Path to save model checkpoints.
+save_path: multi-fidelity-mask-pretrained-cnn/results/burgers/transformer/super-fidelity/trail5/5-instances
